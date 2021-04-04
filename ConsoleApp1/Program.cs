@@ -7,6 +7,8 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             Console.WriteLine("本日!");
+            Class1 c1 = new Class1();
+            c1.getHTML();
         }
     }
 }
