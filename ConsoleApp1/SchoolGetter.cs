@@ -49,6 +49,7 @@ namespace ConsoleApp1
 
 
             string tmpUrl = element[0].QuerySelector("a").GetAttribute("href");
+            //sprintf的な活用法
             singleSchool.url = $"https://www.meikogijuku.jp{tmpUrl}";
             singleSchool.name = element[0].TextContent;
 
