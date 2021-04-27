@@ -6,9 +6,13 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("本日!");
-            SchoolGetter c1 = new SchoolGetter();
-            c1.GetHTML();
+            //Console.WriteLine("本日!");
+            //SchoolGetter c1 = new SchoolGetter();
+            //c1.GetHTML();
+
+
+            CollectionSample cs = new CollectionSample();
+            
         }
     }
 }
