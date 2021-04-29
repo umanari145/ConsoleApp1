@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace ConsoleApp1
@@ -9,17 +10,30 @@ namespace ConsoleApp1
         public CollectionSample()
         {
             Console.WriteLine("Collection Sample");
-            this.SumSample();
+            this.ArithmeticSample();
             this.MapSample();
             List<Dictionary<String, String>> lc = this.ConvertSample();
             this.filterCollection(lc);
+            this.groupByCollection(lc);
         }
 
-        public void SumSample()
+        public void ArithmeticSample()
         {
             int[] array = { 1, 2, 3, 4, 5 };
             int sumAnswer = array.Sum();
             Console.WriteLine("sum:" + sumAnswer);
+
+            double averageAnswer = array.Average();
+            Console.WriteLine("average:" + averageAnswer);
+
+            int countAnswer = array.Count();
+            Console.WriteLine("count:" + countAnswer);
+
+            int maxAnswer = array.Max();
+            Console.WriteLine("max:" + maxAnswer);
+
+            int minAnswer = array.Min();
+            Console.WriteLine("min:" + minAnswer);
         }
 
         public void MapSample()
@@ -109,9 +123,31 @@ namespace ConsoleApp1
         public void filterCollection(List<Dictionary<String, String>> lc)
         {
             //var lc2 = lc.Where(e => e["pref"] == "tokyo");
+            Console.WriteLine("filter");
             var lc2 = lc.Where(e => int.Parse(e["age"]) >= 20);
             foreach (var ele in lc2) {
-                Console.WriteLine("{" + String.Join(", ", from v in ele select v.Key + "=>" + v.Value) + "}");
+                Console.WriteLine(String.Join(", ", ele.Select(v => $"{v.Key}:{v.Value}")));             
+            }
+
+        }
+        
+        
+        //groupBy+orderBy
+        public void groupByCollection(List<Dictionary<String, String>> lc)
+        {
+
+            Console.WriteLine("groupby");
+            var lc2 = lc.GroupBy(e => e["pref"]);
+            foreach (var ele in lc2)
+            {
+                //年齢順位置き換え
+                Console.WriteLine($"key:{ele.Key}");
+                foreach (var eachDic in ele.OrderBy(v => int.Parse(v["age"])))
+                {
+                    //mapのデバッグ
+                    Console.WriteLine(String.Join(",", eachDic.Select(v => $"{v.Key}: {v.Value}")));
+                }
+
             }
 
         }
