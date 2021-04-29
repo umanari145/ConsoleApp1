@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-namespace ConsoleApp1
+namespace ConsoleApp1.util
 {
     class CollectionSample
     {

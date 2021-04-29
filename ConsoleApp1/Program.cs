@@ -1,4 +1,5 @@
 ﻿using System;
+using ConsoleApp1.util;
 
 namespace ConsoleApp1
 {
@@ -11,8 +12,9 @@ namespace ConsoleApp1
             //c1.GetHTML();
 
 
-            CollectionSample cs = new CollectionSample();
+            //CollectionSample cs = new CollectionSample();
             
+            DateSample ds = new DateSample();
         }
     }
 }
