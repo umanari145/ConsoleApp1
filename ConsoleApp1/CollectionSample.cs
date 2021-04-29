@@ -144,6 +144,7 @@ namespace ConsoleApp1
                 Console.WriteLine($"key:{ele.Key}");
                 foreach (var eachDic in ele.OrderBy(v => int.Parse(v["age"])))
                 {
+                    eachDic["email"] = $"{eachDic["name"]}@{eachDic["domain"]}";
                     //mapのデバッグ
                     Console.WriteLine(String.Join(",", eachDic.Select(v => $"{v.Key}: {v.Value}")));
                 }
