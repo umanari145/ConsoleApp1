@@ -17,13 +17,16 @@ namespace ConsoleApp1
             //CollectionSample cs = new CollectionSample();
 
             //DateSample ds = new DateSample();
-            String dbHost = ConfigurationManager.AppSettings["dbHost"];
+            /*String dbHost = ConfigurationManager.AppSettings["dbHost"];
             DataBase db = new DataBase(
                 ConfigurationManager.AppSettings["dbHost"],
                 ConfigurationManager.AppSettings["dbName"],
                 ConfigurationManager.AppSettings["dbUser"],
                 ConfigurationManager.AppSettings["dbPass"]
-            );
+            );*/
+
+            FileSample fs = new FileSample();
+
         }
     }
 }
