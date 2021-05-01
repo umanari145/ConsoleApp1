@@ -1,5 +1,7 @@
 ﻿using System;
+using ConsoleApp1.db;
 using ConsoleApp1.util;
+using System.Configuration;
 
 namespace ConsoleApp1
 {
@@ -13,8 +15,15 @@ namespace ConsoleApp1
 
 
             //CollectionSample cs = new CollectionSample();
-            
-            DateSample ds = new DateSample();
+
+            //DateSample ds = new DateSample();
+            String dbHost = ConfigurationManager.AppSettings["dbHost"];
+            DataBase db = new DataBase(
+                ConfigurationManager.AppSettings["dbHost"],
+                ConfigurationManager.AppSettings["dbName"],
+                ConfigurationManager.AppSettings["dbUser"],
+                ConfigurationManager.AppSettings["dbPass"]
+            );
         }
     }
 }
