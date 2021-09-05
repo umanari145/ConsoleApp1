@@ -8,13 +8,19 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-    class SchoolGetter
+    public class SchoolGetter
     {
         public ArrayList schoolList;
 
         public SchoolGetter()
         {
             this.schoolList = new ArrayList();
+        }
+
+        public string TestDayo()
+        {
+            string msg = "本日は晴天なり";
+            return msg;
         }
 
         public void GetHTML()
