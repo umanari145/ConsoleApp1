@@ -5,9 +5,13 @@ using System.Linq;
 
 namespace ConsoleApp1.util
 {
-    class CollectionSample
+    public class CollectionSample
     {
         public CollectionSample()
+        {
+        }
+
+        public void startCollectionSample()
         {
             Console.WriteLine("Collection Sample");
             this.ArithmeticSample();
@@ -15,6 +19,7 @@ namespace ConsoleApp1.util
             List<Dictionary<String, String>> lc = this.ConvertSample();
             this.filterCollection(lc);
             this.groupByCollection(lc);
+            this.sortByCollection(lc);
         }
 
         public void ArithmeticSample()
@@ -63,6 +68,8 @@ namespace ConsoleApp1.util
             dic.Add("domain", "gmail");
             dic.Add("age", "30");
             dic.Add("pref", "chiba");
+            dic.Add("math", "67");
+            dic.Add("english", "87");
             lc.Add(dic);
 
             //初期化＋定義
@@ -70,8 +77,11 @@ namespace ConsoleApp1.util
             {
                 {"name", "ichirou"},
                 {"domain", "yahoo.co.jp"},
-　              {"age", "18"},
+　               {"age", "30"},
                 {"pref", "tokyo"},
+                {"math", "55"},
+                {"english", "12"},
+
             };
             lc.Add(dic2);
 
@@ -80,8 +90,10 @@ namespace ConsoleApp1.util
             {
                 {"name", "yuusuke"},
                 {"domain", "hotmail.com"},
-              　{"age", "25"},
+                {"age", "30"},
                 {"pref", "chiba"},
+                {"math", "67"},
+                {"english", "75"},
             };
             lc.Add(dic3);
 
@@ -92,6 +104,9 @@ namespace ConsoleApp1.util
                 {"domain", "gmail.com"},
                 {"age", "45"},
                 {"pref", "kanagawa"},
+                {"math", "23"},
+                {"english", "47"},
+
             };
             lc.Add(dic4);
 
@@ -103,6 +118,9 @@ namespace ConsoleApp1.util
                 {"domain", "hotmail.com"},
                 {"age", "9"},
                 {"pref", "tokyo"},
+                {"math", "45"},
+                {"english", "9"},
+
             };
 
             lc.Add(dic5);
@@ -150,6 +168,21 @@ namespace ConsoleApp1.util
                 }
 
             }
+
+        }
+
+        //sortBy
+        public void sortByCollection(List<Dictionary<String, String>> lc)
+        {
+            Console.WriteLine("sortByCollection");
+            var sortList = lc.OrderBy(v => int.Parse(v["age"]));
+            sortList = sortList.ThenBy(v => int.Parse(v["math"]));
+            sortList = sortList.ThenBy(v => int.Parse(v["english"]));
+            foreach (var sl in sortList)
+            {
+                Console.WriteLine(String.Join(",", sl.Select(v => $"{v.Key}: {v.Value}")));
+            }
+            Console.WriteLine("sort result");
 
         }
     }
