@@ -77,7 +77,7 @@ namespace ConsoleApp1.util
             {
                 {"name", "ichirou"},
                 {"domain", "yahoo.co.jp"},
-　               {"age", "30"},
+　              {"age", "30"},
                 {"pref", "tokyo"},
                 {"math", "55"},
                 {"english", "12"},
