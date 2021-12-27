@@ -8,8 +8,7 @@ namespace TestProject1
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
-        {
+        public void TestMethod1()        {
             SchoolGetter sc = new ConsoleApp1.SchoolGetter();
             string msg = sc.TestDayo();
             Assert.AreEqual("本日は晴天なり", msg);
@@ -20,7 +19,7 @@ namespace TestProject1
         {
             SchoolGetter sc = new ConsoleApp1.SchoolGetter();
             string msg = sc.TestDayo();
-            Assert.AreEqual("本日は晴天なりa", msg);
+            Assert.AreEqual("本日は晴天なり", msg);
         }
 
         [TestMethod]

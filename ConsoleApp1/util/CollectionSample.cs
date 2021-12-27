@@ -30,8 +30,8 @@ namespace ConsoleApp1.Util
             this.MapSample();
             List<Dictionary<string, string>> lc = this.ConvertSample();
             this.FilterCollection(lc);
-            this.groupByCollection(lc);
-            this.sortByCollection(lc);
+            this.GroupByCollection(lc);
+            this.SortByCollection(lc);
         }
 
         /// <summary>

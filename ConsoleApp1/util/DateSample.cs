@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ConsoleApp1.util
 {
@@ -29,7 +27,7 @@ namespace ConsoleApp1.util
             Console.WriteLine(dt3.Year);
             //曜日
             Console.WriteLine(dt3.DayOfWeek);
-            
+
             DateTime tempDate = dt3.AddMonths(1);
             DateTime tempDate2 = new DateTime(tempDate.Year, tempDate.Month, 1);
             //月末
@@ -45,7 +43,7 @@ namespace ConsoleApp1.util
             DateTime dt2 = DateTime.Now;
             Console.WriteLine(dt2.AddMonths(-2).ToString("yyyyMMdd"));
         }
-        
+
         public void CompareDate()
         {
             DateTime dt = new DateTime(1980, 5, 13);
