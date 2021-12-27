@@ -2,6 +2,7 @@
 using ConsoleApp1.db;
 using ConsoleApp1.util;
 using System.Configuration;
+using ConsoleApp1.Service;
 
 namespace ConsoleApp1
 {
@@ -9,7 +10,11 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("本日!");
+            Console.WriteLine("本日!");
+
+            UserService userService = new UserService();
+            userService.getUsers();
+
             //SchoolGetter c1 = new SchoolGetter();
             //c1.GetHTML();
 
@@ -25,7 +30,7 @@ namespace ConsoleApp1
                 ConfigurationManager.AppSettings["dbPass"]
             );*/
 
-            FileSample fs = new FileSample();
+            //FileSample fs = new FileSample();
 
         }
     }
