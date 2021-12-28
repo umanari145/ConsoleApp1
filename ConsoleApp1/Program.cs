@@ -12,8 +12,10 @@ namespace ConsoleApp1
         {
             Console.WriteLine("本日!");
 
+            /*
             UserService userService = new UserService();
             userService.getUsers();
+            */
 
             //SchoolGetter c1 = new SchoolGetter();
             //c1.GetHTML();

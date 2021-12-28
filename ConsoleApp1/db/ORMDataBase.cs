@@ -35,7 +35,7 @@ namespace ConsoleApp1.db
         }
 
 
-        public DataTable select(string sql )
+        public DataTable select(string sql)
         {
             /*
             var compiler = new SqlServerCompiler();
@@ -43,8 +43,9 @@ namespace ConsoleApp1.db
             //コレクションで取得できる
             var users = db.Query("users")id", "name", "sex", "birthday")
                             .Get<Users>();
-            return new DataTable();
             */
+            return new DataTable();
+            
         }
     }
 }
