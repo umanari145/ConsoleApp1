@@ -5,43 +5,68 @@ using SqlKata;
 using SqlKata.Compilers;
 using SqlKata.Execution;
 using System.Data;
+using System.Configuration;
 
 namespace ConsoleApp1.db
 {
     class SQLDataBase : IDB
     {
+
+        private SqlConnection con = null;
+
         public void connect()
         {
-            string connectionString = @"Data Source=" + this.dbHost + ";Initial Catalog=" + this.dbName + ";User ID=" + this.dbUser + ";Password=" + this.dbPass;
-            SqlConnection conn = new SqlConnection(connectionString);
-            var compiler = new SqlServerCompiler();
-            var db = new QueryFactory(conn, compiler);
-            //コレクションで取得できる
-            var users = db.Query("users").Select("id", "name", "sex", "birthday")
-                          .Get<Users>();
-
+            if (this.con == null)
+            {
+                try
+                {
+                    string connectionStr = this.getConnetcString();
+                    this.con = new SqlConnection(connectionStr);
+                    this.con.Open();
+                    Console.WriteLine("DBに接続します。");
+                }
+                catch(Exception e)
+                {
+                    throw new SystemException("DBに接続します。", e);
+                }
+            }
         }
 
         public string getConnetcString()
         {
-            throw new NotImplementedException();
+            return ConfigurationManager.ConnectionStrings["sqlserver"].ConnectionString;
         }
 
         public DataTable select(string sql)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("SELECTを実行します。");
+            try
+            {
+                this.connect();
+                SqlCommand sqlCommand = new SqlCommand(sql, this.con);
+
+                var dataAdapter = new SqlDataAdapter(sqlCommand);
+                var dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                return dataTable;
+            }
+            catch(SystemException e)
+            {
+                throw new SystemException("Selectの実行に失敗しました。");
+            }
+            finally
+            {
+                this.con.Close();
+                this.con.Dispose();
+            }
         }
 
-        private void Connect()
+        public void GetSqlCommand(string sql)
         {
-
-            string connectionString = @"Data Source=" + this.dbHost + ";Initial Catalog=" + this.dbName + ";User ID=" + this.dbUser +";Password=" + this.dbPass;
-            SqlConnection conn = new SqlConnection(connectionString);
-            var compiler = new SqlServerCompiler();
-            var db = new QueryFactory(conn, compiler);
-            //コレクションで取得できる
-            var users = db.Query("users").Select("id", "name", "sex", "birthday")
-                          .Get<Users>();
+            this.connect();
+            SqlCommand sqlCommand;
+            sqlCommand = new SqlCommand(sql, this.con);
+            sqlCommand.ExecuteNonQuery();
         }
     }
 }
