@@ -52,6 +52,7 @@ namespace ConsoleApp1.db
             }
             catch(SystemException e)
             {
+                Console.WriteLine(e);
                 throw new SystemException("Selectの実行に失敗しました。");
             }
             finally

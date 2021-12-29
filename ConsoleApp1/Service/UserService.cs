@@ -30,7 +30,7 @@ namespace ConsoleApp1.Service
                 Users user = new Users();
                 user.id = (int)dt.Rows[rowIndex]["id"];
                 user.name = (string)dt.Rows[rowIndex]["name"];
-                user.sex = (int)dt.Rows[rowIndex]["sex"];
+                user.sex = (byte)dt.Rows[rowIndex]["sex"];
                 user.birthday = (DateTime)dt.Rows[rowIndex]["birthday"];
 
                 users.Add(user);
@@ -38,7 +38,6 @@ namespace ConsoleApp1.Service
 
             return users;
         }
-
 
     }
 }

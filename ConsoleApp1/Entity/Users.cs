@@ -8,7 +8,7 @@ namespace ConsoleApp1.Entity
     {
         public int id { get; set; }
         public string name { get; set; }
-        public int sex { get; set; }
+        public byte sex { get; set; }
         public DateTime birthday { get; set; }
     }
 }

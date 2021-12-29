@@ -37,7 +37,7 @@ namespace ConsoleApp1.db
 
         public DataTable select(string sql)
         {
-            /*
+            /*DI的な作りにしようとしたが失敗・・・
             var compiler = new SqlServerCompiler();
             var db = new QueryFactory(this.conn, compiler);
             //コレクションで取得できる

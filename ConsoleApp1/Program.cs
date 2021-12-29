@@ -12,10 +12,9 @@ namespace ConsoleApp1
         {
             Console.WriteLine("本日!");
 
-
+            // DI的な使用法
             UserService userService = new UserService(new SQLDataBase());
             userService.getUsers();
-
 
             //SchoolGetter c1 = new SchoolGetter();
             //c1.GetHTML();
@@ -35,6 +34,7 @@ namespace ConsoleApp1
             //FileSample fs = new FileSample();
 
         }
+
     }
 }
 
