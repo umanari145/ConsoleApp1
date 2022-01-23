@@ -16,18 +16,18 @@ namespace ConsoleApp1.Service
             this.idb = idb;
         }
 
-        public List<Users> getUsers()
+        public List<User> getUsers()
         {
             this.idb.getConnetcString();
             string sql = "select * from users";
             DataTable dt = this.idb.select(sql);
 
-            List<Users> users = new List<Users>();
+            List<User> users = new List<User>();
             int rowNum = dt.Rows.Count;
 
             for (int rowIndex = 0; rowIndex < rowNum; ++rowIndex)
             {
-                Users user = new Users();
+                User user = new User();
                 user.id = (int)dt.Rows[rowIndex]["id"];
                 user.name = (string)dt.Rows[rowIndex]["name"];
                 user.sex = (byte)dt.Rows[rowIndex]["sex"];

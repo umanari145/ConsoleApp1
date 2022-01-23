@@ -50,7 +50,7 @@ namespace ConsoleApp1.db
                 dataAdapter.Fill(dataTable);
                 return dataTable;
             }
-            catch(SystemException e)
+            catch (SystemException e)
             {
                 Console.WriteLine(e);
                 throw new SystemException("Selectの実行に失敗しました。");

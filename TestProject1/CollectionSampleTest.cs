@@ -25,5 +25,13 @@ namespace TestProject1
             cs.SortByCollection(convertSample);
         }
 
+        [TestMethod]
+        public void TestMethod3()
+        {
+            CollectionClassSample cs = new CollectionClassSample();
+            cs.StartCollectionSample();
+
+        }
+
     }
 }
