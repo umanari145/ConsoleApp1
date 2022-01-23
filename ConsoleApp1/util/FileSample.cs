@@ -50,6 +50,7 @@ namespace ConsoleApp1.util
 			try
 			{
 				// 読み込みたいテキストを開く
+				// using処理の中でclose処理が入っている
 				using (StreamReader sr = new StreamReader(filePath, Encoding.GetEncoding("UTF-8")))
 				{
 					// テキストファイルをString型で読み込みコンソールに表示
